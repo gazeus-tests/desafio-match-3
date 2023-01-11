@@ -14,8 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreConfigs:
   - strike: 3
-    score: 50
+    score: 5
   - strike: 4
-    score: 100
+    score: 10
   - strike: 5
-    score: 200
+    score: 20
+  - strike: 6
+    score: 40
+  - strike: 7
+    score: 80
+  - strike: 8
+    score: 160
+  - strike: 9
+    score: 320
+  - strike: 10
+    score: 640
+  - strike: 11
+    score: 1280
+  - strike: 12
+    score: 2560
+  - strike: 13
+    score: 5120
+  - strike: 14
+    score: 10240
+  - strike: 15
+    score: 20480

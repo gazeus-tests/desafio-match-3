@@ -7,6 +7,8 @@ namespace Script.Score
         [SerializeField] private ScoreView view;
         [SerializeField] private ScoreConfigRepository scoreConfigRepository;
 
+        private int score;
+
         private int GetScore(int strike)
         {
             foreach (var scoreConfig in scoreConfigRepository.ScoreConfigs)
@@ -23,7 +25,10 @@ namespace Script.Score
             
         public void HandleScore(int strike)
         {
-            view.UpdateView(GetScore(strike));
+            score += GetScore(strike);
+            Debug.Log($"strike: {strike}");
+
+            view.UpdateView(score);
         }
     }
 }

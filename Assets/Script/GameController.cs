@@ -9,8 +9,6 @@ public class GameController
     private List<int> _tilesTypes;
     private int _tileCount;
 
-    public event Action<int> onMatch;
-
     public List<List<Tile>> StartGame(int boardWidth, int boardHeight)
     {
         _tilesTypes = new List<int> { 0, 1, 2, 3 };
