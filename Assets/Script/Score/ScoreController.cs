@@ -4,16 +4,26 @@ namespace Script.Score
 {
     public class ScoreController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        [SerializeField] private ScoreView view;
+        [SerializeField] private ScoreConfigRepository scoreConfigRepository;
 
-        // Update is called once per frame
-        void Update()
+        private int GetScore(int strike)
         {
-        
+            foreach (var scoreConfig in scoreConfigRepository.ScoreConfigs)
+            {
+                //todo cache the values using a hash
+                if (scoreConfig.strike == strike)
+                {
+                    return scoreConfig.score;
+                }
+            }
+
+            return 0;
+        }
+            
+        public void HandleScore(int strike)
+        {
+            view.UpdateView(GetScore(strike));
         }
     }
 }

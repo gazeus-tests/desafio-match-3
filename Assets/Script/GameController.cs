@@ -1,11 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameController
 {
     private List<List<Tile>> _boardTiles;
     private List<int> _tilesTypes;
     private int _tileCount;
+
+    public event Action<int> onMatch;
 
     public List<List<Tile>> StartGame(int boardWidth, int boardHeight)
     {
