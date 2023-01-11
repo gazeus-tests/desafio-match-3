@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Script.Score;
 
 public class GameHandler : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] public int boardHeight = 10;
 
     [SerializeField] public BoardView boardView;
+
+    [SerializeField] public ScoreController scoreController;
 
     private void Awake()
     {
@@ -79,6 +81,8 @@ public class GameHandler : MonoBehaviour
         sequence.Append(boardView.DestroyTiles(boardSequence.matchedPosition));
         sequence.Append(boardView.MoveTiles(boardSequence.movedTiles));
         sequence.Append(boardView.CreateTile(boardSequence.addedTiles));
+
+        scoreController.HandleScore(boardSequence.matchedPosition.Count);
 
         i++;
         if (i < boardSequences.Count)
